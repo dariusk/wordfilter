@@ -1,0 +1,38 @@
+{
+  "name": "wordfilter",
+  "description": "A small module meant for use in text generators that lets you filter strings for bad words.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/dariusk/wordfilter",
+  "author": {
+    "name": "Darius Kazemi",
+    "email": "darius.kazemi@gmail.com",
+    "url": "http://tinysubversions.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dariusk/wordfilter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dariusk/wordfilter/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/dariusk/wordfilter/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "lib/wordfilter",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt nodeunit"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-contrib-nodeunit": "~0.2.0",
+    "grunt-contrib-watch": "~0.4.0",
+    "grunt": "~0.4.1"
+  },
+  "keywords": []
+}
