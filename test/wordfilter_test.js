@@ -36,4 +36,22 @@ exports['awesome'] = {
     test.equal(wordfilter.blacklisted('this string is clean!'), false, 'should be false');
     test.done();
   },
+  'add a word to blacklist': function(test) {
+    wordfilter.addWords(['clean']);
+
+    test.expect(1);
+    test.equal(wordfilter.blacklisted('this string was clean!'), true, 'should be true');
+    test.done();
+  },
+  'clear blacklist': function(test) {
+    wordfilter.clearList();
+
+    test.expect(2);
+    test.equal(wordfilter.blacklisted('this string contains the word skank'), false, 'list is now empty so false');
+
+    wordfilter.addWords(['skank']);
+    test.equal(wordfilter.blacklisted('this string contains the word skank'), true, 'skank was re-added so true');
+
+    test.done();
+  }
 };
