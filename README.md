@@ -8,6 +8,13 @@ Install the module with: `npm install wordfilter`
 ```javascript
 var wordfilter = require('wordfilter');
 wordfilter.blacklisted('does this string have a bad word in it?'); // "false"
+
+// clear the list entirely
+wordfilter.clearList();
+
+// add new words
+wordfilter.addWords(['zebra','elephant']);
+wordfilter.blacklisted('this string has zebra in it'); // "true"
 ```
 
 ## Documentation
