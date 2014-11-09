@@ -18,6 +18,8 @@ module Wordfilter
 		self.init_first_time
 		
 		string_to_test = string.downcase
+		@@blacklist.map!{|badword| badword.downcase}
+		
 		@@blacklist.each{|word|
 			return true if string_to_test.include? word
 		}
