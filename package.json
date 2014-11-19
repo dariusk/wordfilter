@@ -1,7 +1,7 @@
 {
   "name": "wordfilter",
   "description": "A small module meant for use in text generators that lets you filter strings for bad words.",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "homepage": "https://github.com/dariusk/wordfilter",
   "author": {
     "name": "Darius Kazemi",
