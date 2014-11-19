@@ -28,11 +28,13 @@ exports['awesome'] = {
     done();
   },
   'detects bad words in a string': function(test) {
-    test.expect(4);
+    test.expect(6);
     // tests here
     test.equal(typeof(wordfilter), 'object', 'should return an object');
     test.equal(wordfilter.blacklisted('this string contains the word skank'), true, 'skank should be true');
     test.equal(wordfilter.blacklisted('this string contains the word SkAnK'), true, 'SkAnK should be true');
+    test.equal(wordfilter.blacklisted('this string contains the wordskank'), true, 'wordskank should be true');
+    test.equal(wordfilter.blacklisted('this string contains the skankword'), true, 'skankword should be true');
     test.equal(wordfilter.blacklisted('this string is clean!'), false, 'should be false');
     test.done();
   },

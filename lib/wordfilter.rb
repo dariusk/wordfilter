@@ -11,7 +11,7 @@ module Wordfilter
 	
 	def self.init
 		badwords_file = File.read(BadWordsFileName);
-		@@blacklist = JSON.parse(badwords_file)["badwords"];
+		@@blacklist = JSON.parse(badwords_file);
 	end
 	
 	def self.blacklisted? string
