@@ -21,6 +21,11 @@ class WordfilterTest < Test::Unit::TestCase
 		assert(Wordfilter::blacklisted?("this string was clean!"), "Failed to blacklist a string containing a new bad word.");
 	end
 	
+	def test_added_words_checked_case_insensitively
+		Wordfilter::add_words(['CLEAN']);
+		assert(Wordfilter::blacklisted?("this string was clean!"), "Failed to blacklist a string containing a new bad word because of casing differences.");
+	end
+	
 	def test_clear_blacklist
 		Wordfilter::clear_list
 		refute(Wordfilter::blacklisted?("this string contains the word skank"), "Cleared word list still blacklisting strings.");
