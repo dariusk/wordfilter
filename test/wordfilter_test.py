@@ -25,11 +25,23 @@ class Wordfilter_test:
     assert self.wordfilter.blacklisted('this string is clean!')
 
   def test_clearList(self):
-    self.wordfilter.clearList();
+    self.wordfilter.clearList()
     assert not self.wordfilter.blacklisted('this string contains the word skank')
 
     self.wordfilter.addWords(['skank'])
     assert self.wordfilter.blacklisted('this string contains the word skank')
+
+  def test_add_multiple_words(self):
+    # Arrange
+    self.wordfilter.clearList()
+
+    # Act
+    self.wordfilter.addWords(['zebra','elephant'])
+
+    # Assert
+    assert self.wordfilter.blacklisted('this string has zebra in it')
+    assert self.wordfilter.blacklisted('this string has elephant in it')
+    assert not self.wordfilter.blacklisted('this string has nothing in it')
 
 if __name__ == "__main__":
   nose.main()
