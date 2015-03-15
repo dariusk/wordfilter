@@ -17,6 +17,21 @@ wordfilter.addWords(['zebra','elephant']);
 wordfilter.blacklisted('this string has zebra in it'); // "true"
 ```
 
+Or with Python:
+
+```python
+from lib.wordfilter import Wordfilter
+wordfilter = Wordfilter()
+wordfilter.blacklisted('does this string have a bad word in it?')  # False
+
+# clear the list entirely
+wordfilter.clearList()
+
+# add new words
+wordfilter.addWords(['zebra','elephant'])
+wordfilter.blacklisted('this string has zebra in it')  # True
+```
+
 ## Documentation
 This is a word filter adapted from code that I use in a lot of my twitter bots. It is based on [a list of words that I've hand-picked](https://github.com/dariusk/wordfilter/blob/master/lib/badwords.json) for exclusion from my bots: essentially, it's a list of things that I would not say myself. Generally speaking, they are "words of oppression", aka racist/sexist/ableist things that I would not say.
 
@@ -30,5 +45,5 @@ Also note that due to the complexities of the English language, I am considering
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## License
-Copyright (c) 2013 Darius Kazemi  
+Copyright (c) 2013 Darius Kazemi
 Licensed under the MIT license.
