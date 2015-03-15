@@ -18,7 +18,7 @@ class Wordfilter:
     return False
 
   def addWords(self, words):
-    self.blacklist.extend([word.lower() for word in words]])
+    self.blacklist.extend([word.lower() for word in words])
 
   def clearList(self):
     self.blacklist = []
