@@ -1,6 +1,7 @@
 import os
 import json
 
+
 class Wordfilter:
     def __init__(self):
         # json is in same directory as this class, given by __location__.
