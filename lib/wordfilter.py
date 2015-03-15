@@ -12,7 +12,7 @@ class Wordfilter:
     def blacklisted(self, string):
         test_string = string.lower()
         for badword in self.blacklist:
-            if test_string.find(badword) != -1:
+            if badword in test_string:
                 return True
 
         return False
