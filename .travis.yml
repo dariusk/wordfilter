@@ -1,0 +1,29 @@
+language: python
+
+python:
+- "pypy"
+- "pypy3"
+- 2.6
+- 2.7
+- 3.2
+- 3.3
+- 3.4
+
+sudo: false
+
+install:
+- pip install coverage
+
+script:
+- coverage run --include=lib/* -m nose --verbose
+
+after_success:
+- coverage report
+- pip install coveralls
+- coveralls
+
+after_script:
+- coverage report
+- pip install pep8 pyflakes
+- pep8 --statistics --count lib/*.py test/*.py
+- pyflakes lib/*.py test/*.py | tee >(wc -l)
