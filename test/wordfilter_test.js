@@ -45,6 +45,13 @@ exports['awesome'] = {
     test.equal(wordfilter.blacklisted('this string was clean!'), true, 'should be true');
     test.done();
   },
+  'remove a single word from blacklist': function(test) {
+    wordfilter.removeWord('crip');
+
+    test.expect(1);
+    test.equal(wordfilter.blacklisted('I have a prescription.'), false, 'should be false');
+    test.done();
+  },
   'clear blacklist': function(test) {
     wordfilter.clearList();
 
