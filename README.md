@@ -15,6 +15,10 @@ wordfilter.clearList();
 // add new words
 wordfilter.addWords(['zebra','elephant']);
 wordfilter.blacklisted('this string has zebra in it'); // "true"
+
+// remove a word
+wordfilter.removeWord('zebra');
+wordfilter.blacklisted('this string has zebra in it'); // "false"
 ```
 
 Or with Python:
