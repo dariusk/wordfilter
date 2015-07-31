@@ -30,6 +30,35 @@ class Wordfilter_test:
             'this string contains the word skank')
         assert self.wordfilter.blacklisted('this string is clean!')
 
+    def test_removeWord(self):
+        # Act
+        self.wordfilter.removeWord('crip')
+
+        # Assert
+        assert not self.wordfilter.blacklisted('I have a prescription.')
+
+    def test_remove_multiple_added_words(self):
+        # Arrange
+        # Add several to make sure all instances are removed:
+        self.wordfilter.addWords(['crip', 'crip'])
+
+        # Act
+        self.wordfilter.removeWord('crip')
+
+        # Assert
+        assert not self.wordfilter.blacklisted('I have a prescription.')
+
+    def test_remove_unblacklisted_word(self):
+        # Arrange
+        # Make sure no error when removing a word that's not on the list
+        assert not self.wordfilter.blacklisted('this string is clean!')
+
+        # Act
+        self.wordfilter.removeWord('clean')
+
+        # Assert
+        assert not self.wordfilter.blacklisted('this string is clean!')
+
     def test_clearList(self):
         self.wordfilter.clearList()
         assert not self.wordfilter.blacklisted(
