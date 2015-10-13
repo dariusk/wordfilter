@@ -22,9 +22,10 @@ wordfilter.blacklisted('this string has zebra in it'); // "false"
 ```
 
 Or with Python:
+Install the module with: `pip install wordfilter`
 
 ```python
-from lib.wordfilter import Wordfilter
+from wordfilter import Wordfilter
 wordfilter = Wordfilter()
 wordfilter.blacklisted('does this string have a bad word in it?')  # False
 
