@@ -1,6 +1,6 @@
 # wordfilter
 
-A small module meant for use in text generators that lets you filter strings for bad words.
+A small module meant for use in text generators. It lets you filter strings for bad words.
 
 ## Getting Started
 Install the module with: `npm install wordfilter`
