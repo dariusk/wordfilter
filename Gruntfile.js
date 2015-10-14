@@ -21,11 +21,20 @@ module.exports = function(grunt) {
         src: ['test/**/*.js']
       },
     },
+    jsonlint: {
+      sample: {
+        src: [ 'lib/badwords.json' ]
+      }
+    },
     watch: {
       gruntfile: {
         files: '<%= jshint.gruntfile.src %>',
         tasks: ['jshint:gruntfile']
       },
+      jsonlint: {
+        files: '<%= jsonlint.sample.src %>',
+        tasks: ['jsonlint']
+    },
       lib: {
         files: '<%= jshint.lib.src %>',
         tasks: ['jshint:lib', 'nodeunit']
@@ -41,8 +50,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-jsonlint');
 
   // Default task.
-  grunt.registerTask('default', ['jshint', 'nodeunit']);
+  grunt.registerTask('default', ['jshint', 'jsonlint', 'nodeunit']);
 
 };
