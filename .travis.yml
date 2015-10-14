@@ -23,6 +23,8 @@ script:
 - coverage run --include=lib/* -m nose --verbose
 # Test Javascript:
 - grunt
+# Test Ruby:
+- rake test
 
 after_success:
 - coverage report
