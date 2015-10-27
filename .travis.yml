@@ -16,9 +16,15 @@ install:
   # Coveralls 4.0 doesn't support Python 3.2
   - if [ "$TRAVIS_PYTHON_VERSION" == "3.2" ]; then travis_retry pip install coverage==3.7.1; fi
   - if [ "$TRAVIS_PYTHON_VERSION" != "3.2" ]; then travis_retry pip install coverage; fi
+  - npm install
 
 script:
+# Test Python:
 - coverage run --include=lib/* -m nose --verbose
+# Test Javascript:
+- grunt
+# Test Ruby:
+- rake test
 
 after_success:
 - coverage report
