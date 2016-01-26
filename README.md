@@ -3,6 +3,9 @@
 A small (JavaScript, Python, Ruby and PHP) module meant for use in text generators. It lets you filter strings for bad words.
 
 ## Getting Started
+
+### JavaScript
+
 Install the module with: `npm install wordfilter`
 
 ```javascript
@@ -21,7 +24,8 @@ wordfilter.removeWord('zebra');
 wordfilter.blacklisted('this string has zebra in it'); // "false"
 ```
 
-Or with Python:
+### Python
+
 Install the module with: `pip install wordfilter`
 
 ```python
