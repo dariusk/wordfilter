@@ -54,6 +54,8 @@ Wordfilter::blacklisted? "this string has a zebra in it"	# true
 
 ```
 
+Please note that the Ruby implementation is a global singleton, and is not thread safe.
+
 ## Documentation
 This is a word filter adapted from code that I use in a lot of my twitter bots. It is based on [a list of words that I've hand-picked](https://github.com/dariusk/wordfilter/blob/master/lib/badwords.json) for exclusion from my bots: essentially, it's a list of things that I would not say myself. Generally speaking, they are "words of oppression", aka racist/sexist/ableist things that I would not say.
 
