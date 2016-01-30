@@ -38,10 +38,10 @@ wordfilter.blacklisted('this string has zebra in it')  # True
 ```
 
 Or with Ruby:
-(No gem yet - copy the `lib` directory to your project for now)
+Install with `gem install wordfilter`.
 
 ```ruby
-require '../lib/wordfilter'
+require 'wordfilter'
 
 Wordfilter::blacklisted? "does this string have a bad word in it?"	# false
 
