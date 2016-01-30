@@ -13,6 +13,7 @@ module Wordfilter
 		badwords_file = File.read(BadWordsFileName)
 		@@blacklist = JSON.parse(badwords_file)
 		@@blacklist.map!(&:downcase)
+		return
 	end
 	
 	def self.blacklisted? string
@@ -31,14 +32,17 @@ module Wordfilter
 		self.init_first_time
 		words.map!(&:downcase)
 		@@blacklist += words
+		return
 	end
 
 	def self.remove_word word
 		self.init_first_time
 		@@blacklist.delete word.downcase
+		return
 	end
 	
 	def self.clear_list
 		@@blacklist = []
+		return
 	end
 end
