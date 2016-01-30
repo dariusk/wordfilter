@@ -1,7 +1,7 @@
 require 'json'
 
 module Wordfilter
-	BadWordsFileName = File.dirname(__FILE__) + "/badwords.json";
+	BadWordsFileName = File.dirname(__FILE__) + "/badwords.json"
 	@@blacklist = nil
 	
 	def self.init_first_time
@@ -10,8 +10,8 @@ module Wordfilter
 	end
 	
 	def self.init
-		badwords_file = File.read(BadWordsFileName);
-		@@blacklist = JSON.parse(badwords_file);
+		badwords_file = File.read(BadWordsFileName)
+		@@blacklist = JSON.parse(badwords_file)
 		@@blacklist.map!(&:downcase)
 	end
 	
