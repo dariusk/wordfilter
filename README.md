@@ -40,6 +40,8 @@ wordfilter.blacklisted('this string has zebra in it')  # True
 Or with Ruby:
 Install with `gem install wordfilter`.
 
+[![Gem Version](https://badge.fury.io/rb/wordfilter.svg)](https://badge.fury.io/rb/wordfilter)
+
 ```ruby
 require 'wordfilter'
 
