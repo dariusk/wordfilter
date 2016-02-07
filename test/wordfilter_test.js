@@ -52,6 +52,16 @@ exports['awesome'] = {
     test.equal(wordfilter.blacklisted('I have a prescription.'), false, 'should be false');
     test.done();
   },
+  'add scatological words to blacklist': function(test) {
+    test.expect(2);
+
+    test.equal(wordfilter.blacklisted('we do not care about this shitty string'), false, 'should be false');
+
+    wordfilter.addScatologicalWords();
+    test.equal(wordfilter.blacklisted('we now care about this shitty string'), true, 'should be true');
+
+    test.done();
+  },
   'clear blacklist': function(test) {
     wordfilter.clearList();
 

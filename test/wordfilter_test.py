@@ -59,6 +59,13 @@ class Wordfilter_test:
         # Assert
         assert not self.wordfilter.blacklisted('this string is clean!')
 
+    def test_addScatalogicalWords(self):
+        assert not self.wordfilter.blacklisted(
+            'we do not care about this shitty string')
+        self.wordfilter.addScatologicalWords()
+        assert self.wordfilter.blacklisted(
+            'we now care about this shitty string')
+
     def test_clearList(self):
         self.wordfilter.clearList()
         assert not self.wordfilter.blacklisted(

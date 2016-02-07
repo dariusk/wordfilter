@@ -26,3 +26,9 @@ class Wordfilter:
 
     def clearList(self):
         self.blacklist = []
+
+    def addScatologicalWords(self):
+        __location__ = os.path.realpath(
+            os.path.join(os.getcwd(), os.path.dirname(__file__)))
+        with open(os.path.join(__location__, 'scatological_words.json')) as f:
+            self.addWords(json.loads(f.read()))

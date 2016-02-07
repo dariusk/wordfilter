@@ -1,10 +1,10 @@
 <?php
   // there's probably a test suite for php, but for this quick test just run php wordfilter_test.php
   require_once('../lib/wordfilter.php');
-  
+
   class wordfilter_test {
     var $wordfilter;
-    
+
     function setup() {
       $this->wordfilter = new Wordfilter();
     }
@@ -15,7 +15,7 @@
 
     function test_loading() {
       assert(is_array($this->wordfilter->blacklist));
-    }  
+    }
 
     function test_badWords() {
       assert($this->wordfilter->blacklisted(
@@ -34,6 +34,12 @@
       assert($this->wordfilter->blacklisted(
         'this->string contains the word skank'));
       assert($this->wordfilter->blacklisted('this string is clean!'));
+    }
+
+    function test_addScatalogicalWords() {
+      assert(! $this->wordfilter->blacklisted('we do not care about this shitty string'));
+      $this->wordfilter->addScatologicalWords();
+      assert($this->wordfilter->blacklisted('we now care about this shitty string'));
     }
 
     function test_removeWord() {
@@ -91,14 +97,14 @@
         assert(! $this->wordfilter->blacklisted('this->string has nothing in it'));
     }
   }
-  
+
   $a = $test->test_loading;
-  
-  $funcs = explode(" ", "test_loading test_badWords test_addWords test_removeWord test_remove_multiple_added_words test_remove_unblacklisted_word test_clearList test_add_multiple_words");
+
+  $funcs = explode(" ", "test_loading test_badWords test_addWords test_removeWord test_remove_multiple_added_words test_remove_unblacklisted_word test_addScatalogicalWords test_clearList test_add_multiple_words");
   foreach ($funcs as $func) {
     $test = new wordfilter_test();
     $test->setup();
     $test->$func();
   }
-   
+
 ?>
