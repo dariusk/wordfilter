@@ -37,6 +37,46 @@ wordfilter.addWords(['zebra','elephant'])
 wordfilter.blacklisted('this string has zebra in it')  # True
 ```
 
+Or with Haskell:
+Clone this repo and then `cabal install` (or `stack build`)
+
+```haskell
+module MightBeNaughty where
+
+import System.IO
+import Wordlist
+
+-- functions without trailing ' use Darius' wordlist
+checkInput :: IO String -> IO ()
+checkInput = do
+    input <- getLine
+    ok <- blacklisted input
+    printLn $ if ok then "cool :)" else "not cool >:("
+
+lessThanOriginalList :: String -> IO [String]
+lessThanOriginalList toRemove1 toRemove2 = removeWord toRemove1 >>=
+                                           removeWord toRemove2
+
+-- functions with a trailing ' need an IO [String] wordlist
+getSomeOtherList :: IO [String]
+getSomeOtherList = ...
+
+otherListAndMore :: [String] -> IO Bool
+otherListAndMore otherWords toCheck = getSomeOtherList >>=
+                                      addWords' otherWords >>=
+                                      blacklisted' toCheck
+
+-- clearList is just an empty IO [String] for compatability/convenience(?)
+
+-- blacklist is original
+checkInputParticular :: String -> String -> [String] -> IO Bool
+checkInputParticular toTest toRemove toAdd = blacklist >>=
+                                             removeWord' toRemove >>=
+                                             addWords' toAdd >>=
+                                             blacklisted' toTest
+```
+
+
 ## Documentation
 This is a word filter adapted from code that I use in a lot of my twitter bots. It is based on [a list of words that I've hand-picked](https://github.com/dariusk/wordfilter/blob/master/lib/badwords.json) for exclusion from my bots: essentially, it's a list of things that I would not say myself. Generally speaking, they are "words of oppression", aka racist/sexist/ableist things that I would not say.
 
