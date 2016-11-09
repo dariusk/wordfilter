@@ -55,7 +55,8 @@ checkInput = do
 
 lessThanOriginalList :: String -> IO [String]
 lessThanOriginalList toRemove1 toRemove2 = removeWord toRemove1 >>=
-                                           removeWord toRemove2
+                                           removeWord' toRemove2
+--                                    ~~~important   ^   ~~~
 
 -- functions with a trailing ' need an IO [String] wordlist
 getSomeOtherList :: IO [String]
