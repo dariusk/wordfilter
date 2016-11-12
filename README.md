@@ -44,7 +44,7 @@ Clone this repo and then `cabal install` (or `stack build`)
 module MightBeNaughty where
 
 import System.IO
-import Wordlist
+import Wordfilter
 
 -- functions without trailing ' use Darius' wordlist
 checkInput :: IO String -> IO ()
