@@ -25,6 +25,8 @@ script:
 - grunt
 # Test Ruby:
 - rake test
+# Test Haskell
+- cabal configure --enable-tests && cabal build && cabal test
 
 after_success:
 - coverage report
