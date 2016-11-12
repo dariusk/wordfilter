@@ -16,6 +16,7 @@ addons:
     apt:
         packages:
             - cabal-install
+            - ghc
 
 install:
   # Coveralls 4.0 doesn't support Python 3.2
