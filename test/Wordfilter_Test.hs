@@ -1,6 +1,6 @@
-module Wordlist_Test where
+module Main where
 
-import Lib.Wordlist (blacklisted', addWords', removeWord')
+import Wordfilter (blacklisted', addWords', removeWord')
 import Test.HUnit
 
 blacklistedTests = TestList [testEmptyFalse, testContained, testNotContained]
@@ -13,7 +13,7 @@ testNotContained = TestCase (do r <- blacklisted' "quux i am" ["bar", "foo"]
 
 
 addWordsTest = TestList [testAdd]
-testAdd = TestCase (do r <- addWords' ["foo"], ["bar", "baz"]
+testAdd = TestCase (do r <- addWords' ["foo"] ["bar", "baz"]
                        assertEqual "add words to list" ["bar", "baz", "foo"] r)
 
 removeWordTests = TestList [testPresent, testAbsent]
@@ -22,4 +22,4 @@ testPresent = TestCase (do r <- removeWord' "foo" ["foo", "bar"]
 testAbsent = TestCase (do r <- removeWord' "foo" ["bar", "baz"]
                           assertEqual "don't remove absent word" ["bar", "baz"] r)
 
-main = runTestTT $ TestList [blackListedTests, addWordsTest, removeWordsTest]
+main = runTestTT $ TestList [blacklistedTests, addWordsTest, removeWordTests]
