@@ -1,6 +1,6 @@
 module Wordlist_Test where
 
-import Lib.Wordlist (blacklisted', addWords', removeWord')
+import Wordlist (blacklisted', addWords', removeWord')
 import Test.HUnit
 
 blacklistedTests = TestList [testEmptyFalse, testContained, testNotContained]

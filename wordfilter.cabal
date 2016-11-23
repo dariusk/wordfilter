@@ -13,7 +13,7 @@ maintainer:          sam.raker@gmail.com
 -- copyright:           
 category:            Language
 build-type:          Simple
-extra-source-files:  ChangeLog.md, README.md
+extra-source-files:  README.md
 cabal-version:       >=1.10
 Data-Files:          lib/badwords.json
 
