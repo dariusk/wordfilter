@@ -12,6 +12,12 @@ python:
 
 sudo: false
 
+addons:
+    apt:
+        packages:
+            - cabal-install
+            - ghc
+
 install:
   # Coveralls 4.0 doesn't support Python 3.2
   - if [ "$TRAVIS_PYTHON_VERSION" == "3.2" ]; then travis_retry pip install coverage==3.7.1; fi
@@ -25,6 +31,8 @@ script:
 - grunt
 # Test Ruby:
 - rake test
+# Test Haskell
+- cabal configure --enable-tests && cabal build && cabal test
 
 after_success:
 - coverage report
