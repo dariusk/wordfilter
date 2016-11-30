@@ -21,7 +21,7 @@ module Wordfilter
      --
      -- blacklisted "foo" // IO False
      -- clearList >>= addWords ["foo", "bar"] >>= blacklisted' "foo" // IO True
-     -- 
+     --
      -- real blacklist
        blacklist
      -- empty "blacklist"
@@ -47,7 +47,7 @@ import Text.Regex.PCRE
 import Paths_wordfilter (getDataFileName)
 
 blacklist :: IO [String]
-blacklist = getDataFileName "badwords.json" >>=
+blacklist = getDataFileName "lib/badwords.json" >>=
             B.readFile >>=
             (return . concat . maybeToList . decode)
 

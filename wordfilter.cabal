@@ -2,7 +2,7 @@
 -- documentation, see http://haskell.org/cabal/users-guide/
 
 name:                wordfilter
-version:             0.1.0.1
+version:             0.1.0.2
 synopsis:            Word filter
 -- description:         
 homepage:            https://github.com/dariusk/wordfilter
@@ -15,7 +15,7 @@ category:            Language
 build-type:          Simple
 extra-source-files:  README.md
 cabal-version:       >=1.10
-data-Files:          lib/badwords.json
+data-files:          lib/badwords.json
 
 Test-Suite test-wordfilter
   type: exitcode-stdio-1.0
@@ -25,7 +25,6 @@ Test-Suite test-wordfilter
 
 library
   exposed-modules:     Wordfilter
-  other-modules:       Paths_wordfilter
   -- other-extensions:    
   build-depends:       base >=4.9 && <4.10, 
                        aeson, bytestring,
