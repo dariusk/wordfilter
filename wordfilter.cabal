@@ -2,7 +2,7 @@
 -- documentation, see http://haskell.org/cabal/users-guide/
 
 name:                wordfilter
-version:             0.1.0.2
+version:             0.1.0.3
 synopsis:            Word filter
 -- description:         
 homepage:            https://github.com/dariusk/wordfilter
