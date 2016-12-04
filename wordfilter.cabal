@@ -2,7 +2,7 @@
 -- documentation, see http://haskell.org/cabal/users-guide/
 
 name:                wordfilter
-version:             0.1.0.3
+version:             0.1.0.4
 synopsis:            Word filter
 -- description:         
 homepage:            https://github.com/dariusk/wordfilter
@@ -26,7 +26,7 @@ Test-Suite test-wordfilter
 library
   exposed-modules:     Wordfilter
   -- other-extensions:    
-  build-depends:       base >=4.9 && <4.10, 
+  build-depends:       base >=4.8 && <4.10, 
                        aeson, bytestring,
                        filepath, 
                        regex-pcre-builtin
