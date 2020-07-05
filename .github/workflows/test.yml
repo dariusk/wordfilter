@@ -3,6 +3,32 @@ name: Test
 on: [push, pull_request]
 
 jobs:
+  test-node:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: ["10", "12", "14"]
+        os: [ubuntu-latest, macos-latest, windows-latest]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up node ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: |
+          npm install -g grunt
+          npm install
+
+      - name: Tests
+        shell: bash
+        run: |
+          grunt
+
   test-python:
     runs-on: ${{ matrix.os }}
     strategy:
