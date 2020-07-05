@@ -56,3 +56,24 @@ jobs:
           coverage run --include="lib/*" -m nose --verbose
           coverage report
           flake8
+
+  test-ruby:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby-version: ["2.5", "2.6", "2.7"]
+        os: [ubuntu-latest, macos-latest, windows-latest]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Ruby ${{ matrix.ruby-version }}
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby-version }}
+
+      - name: Tests
+        shell: bash
+        run: |
+          rake test
