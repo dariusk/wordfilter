@@ -80,5 +80,6 @@ class Wordfilter_test:
         assert self.wordfilter.blacklisted('this string has elephant in it')
         assert not self.wordfilter.blacklisted('this string has nothing in it')
 
+
 if __name__ == "__main__":
     nose.main()
