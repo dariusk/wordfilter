@@ -6,6 +6,7 @@ with open("README.md", "r", encoding="utf-8") as f:
 setup(
     name="wordfilter",
     version="0.2.7",
+    license="MIT",
     author="Darius Kazemi",
     description="A small module meant for use in text generators that lets you filter strings for bad words.",
     long_description=long_description,

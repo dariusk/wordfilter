@@ -1,1 +1,2 @@
-inclube lib/badwords.json
+include lib/badwords.json
+include LICENSE-MIT
