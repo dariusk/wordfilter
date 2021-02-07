@@ -1,1 +1,1 @@
-from .wordfilter import Wordfilter
+from .wordfilter import Wordfilter  # noqa: F401
