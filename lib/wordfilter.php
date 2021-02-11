@@ -2,12 +2,12 @@
 
   class Wordfilter {
     var $blacklist;
-    
+
     function __construct() {
       $str = file_get_contents(dirname(__FILE__) . "/badwords.json");
       $this->blacklist = json_decode($str, true);
     }
-    
+
     function blacklisted($string) {
       $test_string = strtolower($string);
       foreach ($this->blacklist as $badword) {
@@ -15,10 +15,10 @@
           return true;
         }
       }
-      
+
       return false;
     }
-    
+
     function addWords($words) {
       if (!is_array($words)) {
         $words = array($words);
@@ -27,14 +27,20 @@
         array_push($this->blacklist, strtolower($word));
       }
     }
-    
+
     function removeWord($word) {
       $this->blacklist = array_diff($this->blacklist, array(strtolower($word)));
     }
-    
+
     function clearList() {
       $this->blacklist = array();
     }
-  }  
-  
+
+    function addScatologicalWords() {
+      $str = file_get_contents(dirname(__FILE__) . "/scatological_words.json");
+      $scatological_words = json_decode($str, true);
+      $this->addWords($scatological_words);
+    }
+  }
+
 ?>
