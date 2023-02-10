@@ -1,13 +1,12 @@
-import nose
 from lib.wordfilter import Wordfilter
 
 
-# Run with `python -m test.wordfilter_test`
-class Wordfilter_test:
-    def setup(self):
+# Run with `pytest`
+class TestWordfilter:
+    def setup_method(self):
         self.wordfilter = Wordfilter()
 
-    def teardown(self):
+    def teardown_method(self):
         self.wordfilter = []
 
     def test_loading(self):
@@ -79,7 +78,3 @@ class Wordfilter_test:
         assert self.wordfilter.blacklisted('this string has zebra in it')
         assert self.wordfilter.blacklisted('this string has elephant in it')
         assert not self.wordfilter.blacklisted('this string has nothing in it')
-
-
-if __name__ == "__main__":
-    nose.main()

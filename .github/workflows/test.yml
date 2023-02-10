@@ -50,12 +50,12 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          python -m pip install --upgrade coverage flake8 nose
+          python -m pip install --upgrade flake8 pytest pytest-cov
 
       - name: Tests
         shell: bash
         run: |
-          coverage run --include="lib/*" -m nose --verbose
+          pytest --cov lib --cov test --verbose --color=yes
           coverage report
           flake8
 
