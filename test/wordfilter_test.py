@@ -10,7 +10,7 @@ class TestWordfilter:
         self.wordfilter = []
 
     def test_loading(self):
-        assert type(self.wordfilter.blacklist) is list
+        assert isinstance(self.wordfilter.blacklist, list)
 
     def test_badWords(self):
         assert self.wordfilter.blacklisted(
