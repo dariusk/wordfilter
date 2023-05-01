@@ -19,6 +19,9 @@ wordfilter.blacklisted('this string has zebra in it'); // "true"
 // remove a word
 wordfilter.removeWord('zebra');
 wordfilter.blacklisted('this string has zebra in it'); // "false"
+
+// add scatological words
+wordfilter.addScatologicalWords();
 ```
 
 Or with Python:
@@ -35,12 +38,15 @@ wordfilter.clearList()
 # add new words
 wordfilter.addWords(['zebra','elephant'])
 wordfilter.blacklisted('this string has zebra in it')  # True
+
+# add scatological words
+wordfilter.addScatologicalWords();
 ```
 
 ## Documentation
 This is a word filter adapted from code that I use in a lot of my twitter bots. It is based on [a list of words that I've hand-picked](https://github.com/dariusk/wordfilter/blob/master/lib/badwords.json) for exclusion from my bots: essentially, it's a list of things that I would not say myself. Generally speaking, they are "words of oppression", aka racist/sexist/ableist things that I would not say.
 
-The list is not all-inclusive, and I'm always adding words to it. If you'd like to file an issue or a pull request to add more words, please do so, but understand that this is primarily for use in my own projects, and I may not agree to add certain words. (For example, I have no problem with scatological words, so "shit" and "fuck" will never be on this list.)
+The list is not all-inclusive, and I'm always adding words to it. If you'd like to file an issue or a pull request to add more words, please do so, but understand that this is primarily for use in my own projects, and I may not agree to add certain words. I have no problem with scatological words, so words like "shit" and "fuck" will never be on the default list, but have been included in a separate list that may be added if you'd prefer to exclude them.
 
 Words are case insensitive.
 
