@@ -3,3 +3,4 @@
 *.pyc
 *.swp
 .coverage
+*.gem

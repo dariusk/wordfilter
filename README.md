@@ -37,6 +37,27 @@ wordfilter.addWords(['zebra','elephant'])
 wordfilter.blacklisted('this string has zebra in it')  # True
 ```
 
+Or with Ruby:
+Install with `gem install wordfilter`.
+
+[![Gem Version](https://badge.fury.io/rb/wordfilter.svg)](https://badge.fury.io/rb/wordfilter)
+
+```ruby
+require 'wordfilter'
+
+Wordfilter::blacklisted? "does this string have a bad word in it?"	# false
+
+#clear all words from the filter
+Wordfilter::clear_list
+
+#add some words to the filter
+Wordfilter::add_words(['zebra', 'elephant'])
+Wordfilter::blacklisted? "this string has a zebra in it"	# true
+
+```
+
+Please note that the Ruby implementation is a global singleton, and is not thread safe.
+
 ## Documentation
 This is a word filter adapted from code that I use in a lot of my twitter bots. It is based on [a list of words that I've hand-picked](https://github.com/dariusk/wordfilter/blob/master/lib/badwords.json) for exclusion from my bots: essentially, it's a list of things that I would not say myself. Generally speaking, they are "words of oppression", aka racist/sexist/ableist things that I would not say.
 
