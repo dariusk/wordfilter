@@ -21,13 +21,12 @@ jobs:
 
       - name: Install dependencies
         run: |
-          npm install -g grunt
           npm install
 
-      - name: Tests
+      - name: Run tests
         shell: bash
         run: |
-          grunt
+          npm test
 
   test-python:
     runs-on: ${{ matrix.os }}

@@ -47,7 +47,7 @@ Words are case insensitive.
 Also note that due to the complexities of the English language, I am considering anything containing the substring of a bad word to be blacklisted. For example, even though "homogenous" is not a bad word, it contains the substring "homo" and it gets filtered. The reason for this is that new slang pops up all the time using compound words and I can't possibly keep up with it. I'm willing to lose a few words like "homogenous" and "Pakistan" in order to avoid false negatives.
 
 ## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
+In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using the included testing libraries (e.g., run `npm test` to test the JavaScript library).
 
 ## License
 Copyright (c) 2013 Darius Kazemi
